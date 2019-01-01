@@ -1,0 +1,25 @@
+{
+  "name": "order-audio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel <your entry file>",
+    "build": "parcel build ./src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/QuantumInformation/order-audio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/QuantumInformation/order-audio/issues"
+  },
+  "homepage": "https://gitlab.com/QuantumInformation/order-audio#README",
+  "devDependencies": {
+    "parcel-bundler": "^1.11.0",
+    "prettier": "^1.15.3"
+  }
+}
