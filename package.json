@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "parcel <your entry file>",
-    "build": "parcel build ./src/index.ts"
+    "build": "parcel build ./src/index.ts --out-dir chrome-extension"
   },
   "repository": {
     "type": "git",
@@ -19,7 +19,13 @@
   },
   "homepage": "https://gitlab.com/QuantumInformation/order-audio#README",
   "devDependencies": {
-    "parcel-bundler": "^1.11.0",
-    "prettier": "^1.15.3"
+    "prettier": "^1.15.3",
+    "ts-loader": "^5.3.2",
+    "typescript": "^3.2.2",
+    "webpack": "^4.28.3",
+    "webpack-cli": "^3.1.2"
+  },
+  "dependencies": {
+    "wait-for-element": "^1.0.2"
   }
 }

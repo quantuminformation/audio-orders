@@ -1,26 +1,19 @@
 {
   "manifest_version": 2,
-  "name": "Test Recorder",
-  "description": " The test-recorder records acceptance tests for the Ember-cli and Nightwatch testing frameworks.",
-  "version": "0.4.2",
+  "name": "Audio Orders",
+  "description": "This extension plays audio when trades of a given size happen.",
+  "version": "0.0.1",
   "browser_action": {
     "default_popup": "popup.html"
   },
   "background": {
     "scripts": ["background.js"]
   },
-  "permissions": [
-    "activeTab",
-    "tabs",
-    "<all_urls>"
-
-  ],
+  "permissions": ["activeTab", "tabs", "<all_urls>"],
   "content_scripts": [
     {
-      "matches": [
-        "<all_urls>"
-      ],
-      "js": ["test-recorder.js"]
+      "matches": ["<all_urls>"],
+      "js": ["bundle.js"]
     }
   ]
 }

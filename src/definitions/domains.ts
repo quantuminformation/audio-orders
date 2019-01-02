@@ -1,17 +1,17 @@
 export type OrderSelector = {
-    orderTableSelector: string
-    orderRowSelector: string
-}
+  orderTableSelector: string;
+  orderRowSelector: string;
+};
 
-export const orderTableSelector = '.trades table tbody'
-export const orderRowSelector = '.col-currency'
+export const orderTableSelector = ".trades table tbody";
+export const orderRowSelector = ".col-currency";
 
-const binanceURL = 'bitfinex.com'
+const binanceURL = "https://www.bitfinex.com/t/BTC:USD";
 
 const binanceOrderSelector: OrderSelector = {
-    orderTableSelector: '.trades table tbody',
-    orderRowSelector: '.col-currency'
-}
+  orderTableSelector: ".trades table tbody",
+  orderRowSelector: ".col-currency"
+};
 
-export const domains = new Map()
-domains.set(binanceURL, binanceOrderSelector)
+export const domains = new Map<string, OrderSelector>();
+domains.set(binanceURL, binanceOrderSelector);

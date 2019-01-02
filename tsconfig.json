@@ -1,15 +1,11 @@
 {
   "compilerOptions": {
+    "outDir": "./chrome-extension/",
+    "sourceMap": true,
     "moduleResolution": "node",
-    "declarationDir": "./build",
-    "module": "esnext",
+    //"noImplicitAny": true,
+    "module": "es6",
     "target": "es6"
   },
-  "exclude": [
-    "node_modules",
-    "tests",
-    "demo",
-    "build"
-  ]
+  "exclude": ["node_modules", "tests", "demo", "build"]
 }
-
