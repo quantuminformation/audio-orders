@@ -9,11 +9,14 @@
   "background": {
     "scripts": ["background.js"]
   },
-  "permissions": ["activeTab", "tabs", "<all_urls>"],
+  "permissions": ["activeTab", "tabs", "https://www.bitfinex.com", "notifications"],
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
       "js": ["bundle.js"]
     }
-  ]
+  ],
+  "icons": {
+    "128": "icon128.png"
+  }
 }

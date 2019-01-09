@@ -7,5 +7,8 @@
     "module": "es6",
     "target": "es6"
   },
-  "exclude": ["node_modules", "tests", "demo", "build"]
+  "exclude": ["node_modules", "tests", "demo", "build"],
+  "types": [
+    "chrome"
+  ]
 }

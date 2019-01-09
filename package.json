@@ -19,10 +19,12 @@
   },
   "homepage": "https://gitlab.com/QuantumInformation/order-audio#README",
   "devDependencies": {
+    "@types/chrome": "0.0.77",
     "prettier": "^1.15.3",
     "ts-loader": "^5.3.2",
     "typescript": "^3.2.2",
     "webpack": "^4.28.3",
+    "webpack-build-notifier": "^0.1.30",
     "webpack-cli": "^3.1.2"
   },
   "dependencies": {
