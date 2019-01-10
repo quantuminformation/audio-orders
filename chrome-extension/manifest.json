@@ -1,15 +1,18 @@
 {
   "manifest_version": 2,
   "name": "Audio Orders",
-  "description": "This extension plays audio when trades of a given size happen.",
+  "description": "This extension plays audio when trades of a given size happen with BTC on Bitfinex.",
   "version": "0.0.1",
   "browser_action": {
     "default_popup": "popup.html"
   },
-  "background": {
-    "scripts": ["background.js"]
-  },
-  "permissions": ["activeTab", "tabs", "https://www.bitfinex.com", "notifications"],
+
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "https://www.bitfinex.com",
+    "notifications"
+  ],
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
@@ -18,5 +21,6 @@
   ],
   "icons": {
     "128": "icon128.png"
-  }
+  },
+  "web_accessible_resources": ["audio/up.mp3", "audio/down.mp3"]
 }

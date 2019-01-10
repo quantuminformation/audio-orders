@@ -1,11 +1,11 @@
 {
-  "name": "order-audio",
-  "version": "1.0.0",
+  "name": "Audio-Orders",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "parcel <your entry file>",
-    "build": "parcel build ./src/index.ts --out-dir chrome-extension"
+    "start": "webpack --watch",
+    "build": "webpack -p"
   },
   "repository": {
     "type": "git",
@@ -25,9 +25,11 @@
     "typescript": "^3.2.2",
     "webpack": "^4.28.3",
     "webpack-build-notifier": "^0.1.30",
-    "webpack-cli": "^3.1.2"
+    "webpack-cli": "^3.1.2",
+    "webpack-obfuscator": "^0.18.0"
   },
   "dependencies": {
+    "arrive": "^2.4.1",
     "wait-for-element": "^1.0.2"
   }
 }
