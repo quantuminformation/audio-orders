@@ -5,7 +5,7 @@ export class AudioOrders {
    * @param config you can override this
    */
 
-  defaultTradeNotificationVolume = 0.2;
+  defaultTradeNotificationVolume = 10;
   constructor() {
     const currentHref = window.location.href;
     const currentOrderSelector = domains.get(currentHref);

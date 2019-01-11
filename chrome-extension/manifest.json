@@ -10,8 +10,7 @@
   "permissions": [
     "activeTab",
     "tabs",
-    "https://www.bitfinex.com",
-    "notifications"
+    "https://www.bitfinex.com"
   ],
   "content_scripts": [
     {
