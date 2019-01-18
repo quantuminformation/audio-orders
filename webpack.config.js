@@ -1,7 +1,5 @@
 const path = require("path");
-var WebpackBuildNotifierPlugin = require('webpack-build-notifier');
-var JavaScriptObfuscator = require('webpack-obfuscator');
-
+var WebpackBuildNotifierPlugin = require("webpack-build-notifier");
 
 module.exports = {
   entry: "./src/index.ts",
@@ -27,9 +25,6 @@ module.exports = {
     new WebpackBuildNotifierPlugin({
       title: "Audio Orders"
       //,suppressSuccess: true
-    }),
-    new JavaScriptObfuscator ({
-      rotateUnicodeArray: true
-    }, ['excluded_bundle_name.js'])
+    })
   ]
 };
