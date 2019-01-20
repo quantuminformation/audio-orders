@@ -5,7 +5,8 @@ export class AudioOrders {
    * @param config you can override this
    */
 
-  defaultTradeNotificationVolume = 10;
+  defaultTradeNotificationSize = 10;
+  defaultTradeNotificationSizeBig = 100;
   constructor() {
     const currentHref = window.location.href;
     const currentOrderSelector = domains.get(currentHref);
@@ -46,8 +47,15 @@ export class AudioOrders {
               const newOrder = Number(
                 addedRow.querySelector(".col-currency").textContent
               );
-              if (newOrder >= this.defaultTradeNotificationVolume) {
-                const isBuy = !!addedRow.querySelector(".fa-chevron-up");
+              const isBuy = !!addedRow.querySelector(".fa-chevron-up");
+
+              if (newOrder >= this.defaultTradeNotificationSizeBig) {
+                new Audio(
+                  chrome.runtime.getURL(
+                    isBuy ? "audio/upBig.mp3" : "audio/downBig.mp3"
+                  )
+                ).play();
+              } else if (newOrder >= this.defaultTradeNotificationSize) {
                 new Audio(
                   chrome.runtime.getURL(
                     isBuy ? "audio/up.mp3" : "audio/down.mp3"
