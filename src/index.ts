@@ -25,6 +25,8 @@ export class AudioOrders {
     } else {
       console.log("no trades to be monitored");
     }
+
+    console.log(`Your orders to be notified of are above ${this.defaultTradeNotificationSizeBig} (big order) and ${this.defaultTradeNotificationSize} BTC`)
   }
 
   addObserverForTrades(orderSelector: OrderSelector) {

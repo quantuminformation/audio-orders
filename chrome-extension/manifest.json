@@ -7,10 +7,7 @@
     "default_popup": "popup.html"
   },
 
-  "permissions": [
-    "activeTab",
-    "tabs"
-  ],
+  "permissions": ["activeTab", "tabs"],
   "content_scripts": [
     {
       "matches": ["https://www.bitfinex.com/*"],
@@ -20,5 +17,5 @@
   "icons": {
     "128": "icon128.png"
   },
-  "web_accessible_resources": ["audio/up.mp3", "audio/down.mp3"]
+  "web_accessible_resources": ["audio/*"]
 }
