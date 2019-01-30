@@ -1,22 +1,20 @@
-import { domains, OrderSelector } from "./definitions/domains";
+import { domains, OrderSelector, OrderSelectorNotificationSize } from "./definitions/domains";
 
 export class AudioOrders {
   /**
    * @param config you can override this
    */
 
-  defaultTradeNotificationSize = 10;
-  defaultTradeNotificationSizeBig = 100;
   constructor() {
     const currentHref = window.location.href;
     const currentOrderSelector = domains.get(currentHref);
     if (currentOrderSelector) {
-      console.log(`Found ${currentOrderSelector.name}, happy listening!`);
+      console.log(`Found ${currentOrderSelector.orderSelector.name} for currency ${currentOrderSelector.CurrencyInfo}, happy listening!`);
 
-      if (document.querySelector(currentOrderSelector.orderTableSelector)) {
+      if (document.querySelector(currentOrderSelector.orderSelector.orderTableSelector)) {
         this.addObserverForTrades(currentOrderSelector); // already on page before extension loads
       } else {
-        elementReady(currentOrderSelector.orderTableSelector)
+        elementReady(currentOrderSelector.orderSelector.orderTableSelector)
           .then(element => {
             this.addObserverForTrades(currentOrderSelector);
           })
@@ -26,12 +24,12 @@ export class AudioOrders {
       console.log("no trades to be monitored");
     }
 
-    console.log(`Your orders to be notified of are above ${this.defaultTradeNotificationSizeBig} (big order) and ${this.defaultTradeNotificationSize} BTC`)
+    console.log(`Your orders to be notified of are above ${currentOrderSelector.NotificationSize.normal} (big order) and ${currentOrderSelector.NotificationSize.big  } {currentOrderSelector.CurrencyInfo`)
   }
 
-  addObserverForTrades(orderSelector: OrderSelector) {
+  addObserverForTrades(orderSelectorNotificationSize: OrderSelectorNotificationSize) {
     let targetElement = document.querySelector(
-      orderSelector.orderTableSelector
+      orderSelectorNotificationSize.orderSelector.orderTableSelector
     );
     let observer = new MutationObserver(mutations => {
       mutations.forEach((mutationRecord: MutationRecord) => {
@@ -51,13 +49,13 @@ export class AudioOrders {
               );
               const isBuy = !!addedRow.querySelector(".fa-chevron-up");
 
-              if (newOrder >= this.defaultTradeNotificationSizeBig) {
+              if (newOrder >= orderSelectorNotificationSize.NotificationSize.big) {
                 new Audio(
                   chrome.runtime.getURL(
                     isBuy ? "audio/upBig.mp3" : "audio/downBig.mp3"
                   )
                 ).play();
-              } else if (newOrder >= this.defaultTradeNotificationSize) {
+              } else if (newOrder >= orderSelectorNotificationSize.NotificationSize.normal) {
                 new Audio(
                   chrome.runtime.getURL(
                     isBuy ? "audio/up.mp3" : "audio/down.mp3"
