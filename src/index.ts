@@ -1,4 +1,8 @@
-import { domains, OrderSelector, OrderSelectorNotificationSize } from "./definitions/domains";
+import {
+  domains,
+  OrderSelector,
+  OrderSelectorNotificationSize
+} from "./definitions/domains";
 
 export class AudioOrders {
   /**
@@ -9,9 +13,17 @@ export class AudioOrders {
     const currentHref = window.location.href;
     const currentOrderSelector = domains.get(currentHref);
     if (currentOrderSelector) {
-      console.log(`Found ${currentOrderSelector.orderSelector.name} for currency ${currentOrderSelector.CurrencyInfo}, happy listening!`);
+      console.log(
+        `Found ${currentOrderSelector.orderSelector.name} for currency ${
+          currentOrderSelector.CurrencyInfo
+        }, happy listening!`
+      );
 
-      if (document.querySelector(currentOrderSelector.orderSelector.orderTableSelector)) {
+      if (
+        document.querySelector(
+          currentOrderSelector.orderSelector.orderTableSelector
+        )
+      ) {
         this.addObserverForTrades(currentOrderSelector); // already on page before extension loads
       } else {
         elementReady(currentOrderSelector.orderSelector.orderTableSelector)
@@ -24,10 +36,16 @@ export class AudioOrders {
       console.log("no trades to be monitored");
     }
 
-    console.log(`Your orders to be notified of are above ${currentOrderSelector.NotificationSize.normal} (big order) and ${currentOrderSelector.NotificationSize.big  } {currentOrderSelector.CurrencyInfo`)
+    console.log(
+      `Your orders to be notified of are above ${
+        currentOrderSelector.NotificationSize.big
+      } (big order) and ${currentOrderSelector.NotificationSize.normal} `
+    );
   }
 
-  addObserverForTrades(orderSelectorNotificationSize: OrderSelectorNotificationSize) {
+  addObserverForTrades(
+    orderSelectorNotificationSize: OrderSelectorNotificationSize
+  ) {
     let targetElement = document.querySelector(
       orderSelectorNotificationSize.orderSelector.orderTableSelector
     );
@@ -49,13 +67,18 @@ export class AudioOrders {
               );
               const isBuy = !!addedRow.querySelector(".fa-chevron-up");
 
-              if (newOrder >= orderSelectorNotificationSize.NotificationSize.big) {
+              if (
+                newOrder >= orderSelectorNotificationSize.NotificationSize.big
+              ) {
                 new Audio(
                   chrome.runtime.getURL(
                     isBuy ? "audio/upBig.mp3" : "audio/downBig.mp3"
                   )
                 ).play();
-              } else if (newOrder >= orderSelectorNotificationSize.NotificationSize.normal) {
+              } else if (
+                newOrder >=
+                orderSelectorNotificationSize.NotificationSize.normal
+              ) {
                 new Audio(
                   chrome.runtime.getURL(
                     isBuy ? "audio/up.mp3" : "audio/down.mp3"

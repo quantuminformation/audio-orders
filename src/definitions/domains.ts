@@ -10,7 +10,7 @@ export type NotificationSize = {
 
 const notificationSizeXRP: NotificationSize = {
   normal: 1000,
-  big: 100000
+  big: 10000
 };
 const notificationSizeBTC: NotificationSize = {
   normal: 10,
