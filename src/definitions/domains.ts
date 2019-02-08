@@ -9,15 +9,20 @@ export type NotificationSize = {
 };
 
 const notificationSizeXRP: NotificationSize = {
-  normal: 1000,
-  big: 10000
+  normal: 5000,
+  big: 50000
 };
 const notificationSizeBTC: NotificationSize = {
   normal: 10,
   big: 100
 };
+const notificationSizeLTC: NotificationSize = {
+  normal: 500,
+  big: 5000
+};
 
 const binanceBTCUSD = "https://www.bitfinex.com/t/BTC:USD";
+const binanceLTCUSD = "https://www.bitfinex.com/t/LTC:USD";
 const binanceXRPUSD = "https://www.bitfinex.com/t/XRP:USD";
 
 const binanceOrderSelector: OrderSelector = {
@@ -36,6 +41,11 @@ domains.set(binanceBTCUSD, {
   orderSelector: binanceOrderSelector,
   NotificationSize: notificationSizeBTC,
   CurrencyInfo: "BTC"
+});
+domains.set(binanceLTCUSD, {
+  orderSelector: binanceOrderSelector,
+  NotificationSize: notificationSizeLTC,
+  CurrencyInfo: "LTC"
 });
 domains.set(binanceXRPUSD, {
   orderSelector: binanceOrderSelector,
