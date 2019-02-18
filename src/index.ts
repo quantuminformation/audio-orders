@@ -32,6 +32,7 @@ export class AudioOrders {
           })
           .catch(console.error.bind(console));
       }
+    } else if (window.location.hostname === "www.etoro.com") {
     } else {
       console.log("no trades to be monitored");
     }
@@ -72,7 +73,7 @@ export class AudioOrders {
               ) {
                 new Audio(
                   chrome.runtime.getURL(
-                    isBuy ? "audio/upBig.mp3" : "audio/downBig.mp3"
+                    isBuy ? "audio/very_good.mp3" : "audio/very_bad.mp3"
                   )
                 ).play();
               } else if (
@@ -81,7 +82,7 @@ export class AudioOrders {
               ) {
                 new Audio(
                   chrome.runtime.getURL(
-                    isBuy ? "audio/up.mp3" : "audio/down.mp3"
+                    isBuy ? "audio/good.mp3" : "audio/bad.mp3"
                   )
                 ).play();
               }

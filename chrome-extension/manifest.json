@@ -10,7 +10,10 @@
   "permissions": ["activeTab", "tabs"],
   "content_scripts": [
     {
-      "matches": ["https://www.bitfinex.com/*"],
+      "matches": [
+        "https://www.bitfinex.com/*",
+        "https://www.etoro.com/markets/*"
+      ],
       "js": ["bundle.js"]
     }
   ],
